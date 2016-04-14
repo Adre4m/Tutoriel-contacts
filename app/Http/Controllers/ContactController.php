@@ -13,14 +13,12 @@ use Illuminate\Validation\Validator;
 
 class ContactController extends Controller
 {
-
+    
     public function index() {
-        //$contacts = Contact::where('id_contact', auth()->user()->id)
-        //    ->orderBy('last_name', 'asc')
-        //    ->get();
         $contacts = Contact::where(['id_contact' => auth()->user()->id,])->get();
         return view('contacts', ['contacts' => $contacts]);
     }
+
 
     public function addContact() {
         return view('add');
@@ -45,7 +43,7 @@ class ContactController extends Controller
     }
 
     public function delete($id_contact) {
-        Contact::find($id_contact)->delete();
+        Contact::find(['id_contact'=>$id_contact,])->first()->delete();
         return redirect()->route('contacts');
     }
 }
