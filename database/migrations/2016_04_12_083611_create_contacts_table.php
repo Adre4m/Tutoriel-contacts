@@ -16,10 +16,10 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('last_name');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->integer('is_contact')->unsigned();
             $table->foreign('is_contact')->references('id')->on('users');
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 

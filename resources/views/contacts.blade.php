@@ -24,7 +24,21 @@
 
                         <div class="panel-body">
                             @foreach($contacts as $contact)
-                                {{$contact->name}} {{ $contact->last_name }}, phone : {{ $contact->phone }}<br>
+                                <div class="panel-group">
+                                    {{$contact->name}} {{ $contact->last_name }}, phone : {{ $contact->phone }}
+                                    <span style="float: right; margin-left:50%;">
+                                        <a href="/modify{{ $contact->id }}">
+                                            <button class="btn btn-warning" type="button">
+                                                Edit
+                                            </button>
+                                        </a>
+                                        <a href="/delete{{ Auth::user()->id . '_' . $contact->id }}">
+                                            <button class="btn btn-danger" type="button">
+                                                Delete
+                                            </button>
+                                        </a>
+                                    </span>
+                                </div>
                             @endforeach
                         </div>
                     </div>

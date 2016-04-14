@@ -17,22 +17,16 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/home', 'HomeController@index');
 
-Route::auth();
+    Route::get('/add', 'ContactController@addContact');
 
-Route::get('/home', 'HomeController@index');
+    Route::post('/contacts', 'ContactController@add')->name('toto');
 
-Route::auth();
+    Route::get('/modify{id_contact}', 'ContactController@modifyContact');
 
-Route::get('/home', 'HomeController@index');
+    Route::post('/modify{id_contact}', 'ContactController@modify');
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
-Route::get('/contacts{id}', 'ContactController@index');
-
-Route::get('/add', 'ContactController@addContact');
-
-Route::post('/add{id}', 'ContactController@add');
+    Route::get('/delete{id_contact}', 'ContactController@delete');
+});
