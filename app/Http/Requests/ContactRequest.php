@@ -44,8 +44,7 @@ class ContactRequest extends Request
         $contact->last_name = $this->input('last_name');
         $contact->phone = $this->input('phone');
         $contact->id_contact = auth()->user()->id;
-        //if($is_new)
-            $contact->save();
+        $contact->save();
         return $contact;
     }
 }

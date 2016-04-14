@@ -28,7 +28,7 @@ class ContactController extends Controller
 
     public function add(ContactRequest $request) {
         
-        $contact = $request->persist();
+        $request->persist();
         
         return redirect()->route('contacts');
     }
