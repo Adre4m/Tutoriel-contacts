@@ -19,6 +19,7 @@ class ContactController extends Controller
         return view('contacts', ['contacts' => $contacts]);
     }
 
+    
 
     public function addContact() {
         return view('add');
