@@ -15,5 +15,12 @@ return [
 
     'previous' => '&laquo; Précedent',
     'next'     => 'Suivant &raquo;',
+    'home'     => 'Accueil',
+    'login'    => 'Se connecter',
+    'register' => 'S\'enregistrer',
+    'logout'   => 'Se deconnecter',
+    'add'      => 'Ajouter',
+    'cancel'   => 'Annuler',
+    'change'   => 'Modifier',
 
 ];

@@ -15,5 +15,12 @@ return [
 
     'previous' => '&laquo; Previous',
     'next'     => 'Next &raquo;',
+    'home'     => 'Home',
+    'login'    => 'Login',
+    'register' => 'Register',
+    'logout'   => 'Logout',
+    'add'      => 'Add',
+    'cancel'   => 'Cancel',
+    'change'   => 'Change',
 
 ];

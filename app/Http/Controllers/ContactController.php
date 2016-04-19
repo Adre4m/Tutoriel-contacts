@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
-use DB;
+use Yajra\Datatables\Datatables;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class ContactController extends Controller
 {
     
     public function index() {
-        $contacts = Contact::where(['id_contact' => auth()->user()->id,])->get();
+        $contacts = Contact::whereIdContact(auth()->user()->id)->get();
         return view('contacts', ['contacts' => $contacts]);
     }
 

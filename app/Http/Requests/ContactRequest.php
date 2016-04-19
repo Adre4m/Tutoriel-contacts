@@ -27,7 +27,7 @@ class ContactRequest extends Request
         return [
             'name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'phone' => 'required|min:10|regex:"^0(.?[0-9]){9}$"',
+            'phone' => 'required|min:10|regex:"^0[1-9]([.-]?[0-9]{2}){4}$"',
         ];
     }
 
@@ -37,8 +37,7 @@ class ContactRequest extends Request
      */
     public function persist($contact = null)
     {
-        $is_new = $contact == null;
-        if($is_new)
+        if($contact == null)
             $contact = new Contact;
         $contact->name = $this->input('name');
         $contact->last_name = $this->input('last_name');

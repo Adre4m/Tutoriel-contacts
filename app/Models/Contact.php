@@ -5,6 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
+/**
+ * App\Models\Contact
+ *
+ * @mixin \Eloquent
+ * @property integer $id
+ * @property string $name
+ * @property string $last_name
+ * @property string $phone
+ * @property integer $id_contact
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Contact whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Contact whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Contact whereLastName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Contact wherePhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Contact whereIdContact($value)
+ */
 class Contact extends Model
 {
 
@@ -20,11 +35,4 @@ class Contact extends Model
     protected $cast = [
         'id_contact' => 'integer',
     ];
-
-    public function mutate(Request $request) {
-        $this->name = $request->input('name');
-        $this->last_name = $request->input('last_name');
-        $this->phone = $request->input('phone');
-        $this->save();
-    }
 }
