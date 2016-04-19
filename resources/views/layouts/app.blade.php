@@ -74,5 +74,9 @@
     </nav>
 
     @yield('content')
+
+    <div class="panel-footer">
+        
+    </div>
 </body>
 </html>

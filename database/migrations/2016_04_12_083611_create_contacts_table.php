@@ -19,7 +19,6 @@ class CreateContactsTable extends Migration
             $table->string('phone');
             $table->integer('id_contact')->unsigned();
             $table->foreign('id_contact')->references('id')->on('users');
-//            $table->timestamps();
         });
     }
 

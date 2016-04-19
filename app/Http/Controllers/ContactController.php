@@ -16,13 +16,11 @@ class ContactController extends Controller
     
     public function index() {
         $contacts = Contact::whereIdContact(auth()->user()->id)->get();
-        return view('contacts', ['contacts' => $contacts]);
+        return view('contacts.contacts', ['contacts' => $contacts]);
     }
 
-    
-
     public function addContact() {
-        return view('add');
+        return view('contacts.add');
     }
 
     public function add(ContactRequest $request) {
@@ -34,7 +32,7 @@ class ContactController extends Controller
 
     public function modifyContact($id_contact) {
         $contact = Contact::find(['id_contact'=>$id_contact,])->first();
-        return view('modify', ['contact' => $contact]);
+        return view('contacts.modify', ['contact' => $contact]);
     }
 
     public function modify(ContactRequest $request, $id_contact) {
