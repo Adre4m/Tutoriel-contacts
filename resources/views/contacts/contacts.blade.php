@@ -30,37 +30,6 @@
             </div>
         </div>
     </div>
-    @if($contacts->count())
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Contacts</div>
-                        <div class="panel-body">
-                            @foreach($contacts as $contact)
-                                <div class="panel-group">
-                                    {{$contact->name}} {{ $contact->last_name }}, phone : {{ $contact->phone }}
-                                    <span style="float: right; margin-left:50%;">
-                                        <a href="/modify{{ $contact->id }}">
-                                            <button class="btn btn-warning" type="button">
-                                                {{ trans('form.edit') }}
-                                            </button>
-                                        </a>
-                                        <a href="/delete{{ $contact->id }}">
-                                            <button class="btn btn-danger" type="button">
-                                                {{ trans('form.delete') }}
-                                            </button>
-                                        </a>
-                                    </span>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -73,4 +42,12 @@
             </div>
         </div>
     </div>
+    {!! $dataTable->table() !!}
 @endsection
+
+@push('scripts')
+    <link href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" type="text/css">
+    <script src="//code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    {!! $dataTable->scripts() !!}
+@endpush

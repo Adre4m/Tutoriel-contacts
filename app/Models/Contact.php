@@ -35,4 +35,15 @@ class Contact extends Model
     protected $cast = [
         'id_contact' => 'integer',
     ];
+
+
+    public static function query() {
+        return Contact::select([
+            'id',
+            'name as ' . trans('form.name'),
+            'last_name as ' . trans('form.last_name'),
+            'phone as ' . trans('form.phone'),])
+            ->whereIdContact(auth()->user()->id)
+            ->newQuery();
+    }
 }

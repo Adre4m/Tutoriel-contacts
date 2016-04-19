@@ -74,9 +74,13 @@
     </nav>
 
     @yield('content')
+    @stack('scripts')
 
-    <div class="panel-footer">
-        
-    </div>
+        {{--<div class="panel-footer">--}}
+            {{--Git hub :--}}
+            {{--<a href="https://github.com/Adre4m/Tutoriel-contacts" target="_blank">--}}
+                {{--https://github.com/Adre4m/Tutoriel-contacts--}}
+            {{--</a>--}}
+        {{--</div>--}}
 </body>
 </html>

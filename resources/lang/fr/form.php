@@ -6,7 +6,7 @@ return [
     'password'      => 'Mot de passe',
     'name'          => 'Prénom',
     'last_name'     => 'Nom',
-    'phone'         => 'Numéro de téléphone',
+    'phone'         => 'Téléphone',
     'confirm'       => 'Confirmez le mot de passe',
     'edit'          => 'Editer',
     'delete'        => 'Supprimer',

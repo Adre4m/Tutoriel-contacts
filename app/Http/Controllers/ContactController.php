@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ContactDataTable;
 use App\Http\Requests\ContactRequest;
 use Yajra\Datatables\Datatables;
 
@@ -14,9 +15,9 @@ use Illuminate\Validation\Validator;
 class ContactController extends Controller
 {
     
-    public function index() {
-        $contacts = Contact::whereIdContact(auth()->user()->id)->get();
-        return view('contacts.contacts', ['contacts' => $contacts]);
+    public function index(ContactDataTable $dataTable) {
+//        return view('contacts.contacts');
+        return $dataTable->render('contacts.contacts');
     }
 
     public function addContact() {
