@@ -37,8 +37,9 @@ class ContactRequest extends Request
      */
     public function persist($contact = null)
     {
-        if($contact == null)
+        if($contact == null) {
             $contact = new Contact;
+        }
         $contact->name = $this->input('name');
         $contact->last_name = $this->input('last_name');
         $contact->phone = $this->input('phone');

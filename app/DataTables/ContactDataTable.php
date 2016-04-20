@@ -1,14 +1,10 @@
 <?php
-
 namespace App\DataTables;
-
 use App\Models\Contact;
 use Yajra\Datatables\Services\DataTable;
-
 class ContactDataTable extends DataTable
 {
     // protected $printPreview  = 'path.to.print.preview.view';
-
     /**
      * Display ajax response.
      *
@@ -21,18 +17,17 @@ class ContactDataTable extends DataTable
             ->addColumn("action", function($contact) {
                 return '<a href="/modify' . $contact->id . '">
                             <button class="btn btn-warning" type="button">' .
-                                    trans('form.edit').
-                            '</button>
+                trans('form.edit').
+                '</button>
                         </a>
                         <a href="/delete' . $contact->id . '">
                             <button class="btn btn-danger" type="button">'.
-                                    trans('form.delete').
-                            '</button>
+                trans('form.delete').
+                '</button>
                         </a>';
             })
             ->make(true);
     }
-
     /**
      * Get the query object to be processed by datatables.
      *
@@ -41,10 +36,8 @@ class ContactDataTable extends DataTable
     public function query()
     {
         $contacts = Contact::query();
-
         return $this->applyScopes($contacts);
     }
-
     /**
      * Optional method if you want to use html builder.
      *
@@ -53,12 +46,11 @@ class ContactDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->ajax('')
-                    ->addAction(['width' => '125px'])
-                    ->parameters($this->getBuilderParameters());
+            ->columns($this->getColumns())
+            ->ajax('')
+            ->addAction(['width' => '125px'])
+            ->parameters($this->getBuilderParameters());
     }
-
     /**
      * Get columns.
      *
@@ -67,12 +59,11 @@ class ContactDataTable extends DataTable
     private function getColumns()
     {
         return [
-            trans('form.name'),
-            trans('form.last_name'),
-            trans('form.phone'),
+            ['data' => 'name', 'title' => trans('form.name')],
+            ['data' => 'last_name', 'title' => trans('form.last_name')],
+            ['data' => 'phone', 'title' => trans('form.phone')],
         ];
     }
-
     /**
      * Get filename for export.
      *

@@ -73,14 +73,11 @@
         </div>
     </nav>
 
-    @yield('content')
-    @stack('scripts')
 
-        {{--<div class="panel-footer">--}}
-            {{--Git hub :--}}
-            {{--<a href="https://github.com/Adre4m/Tutoriel-contacts" target="_blank">--}}
-                {{--https://github.com/Adre4m/Tutoriel-contacts--}}
-            {{--</a>--}}
-        {{--</div>--}}
+    @yield('content')
+        <script src="//code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    @stack('scripts')
 </body>
 </html>
+

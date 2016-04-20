@@ -40,9 +40,9 @@ class Contact extends Model
     public static function query() {
         return Contact::select([
             'id',
-            'name as ' . trans('form.name'),
-            'last_name as ' . trans('form.last_name'),
-            'phone as ' . trans('form.phone'),])
+            'name',
+            'last_name',
+            'phone',])
             ->whereIdContact(auth()->user()->id)
             ->newQuery();
     }

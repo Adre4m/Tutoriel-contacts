@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/contacts', 'ContactController@index')->name('contacts');
     Route::get('/add', 'ContactController@addContact');
     Route::post('/add', 'ContactController@add');
-    Route::get('/modify{id_contact}', 'ContactController@modifyContact');
-    Route::post('/modify{id_contact}', 'ContactController@modify');
-    Route::get('/delete{id_contact}', 'ContactController@delete');
+    Route::get('/modify{contact}', 'ContactController@modifyContact');
+    Route::post('/modify{contact}', 'ContactController@modify');
+    Route::get('/delete{contact}', 'ContactController@delete');
 });
